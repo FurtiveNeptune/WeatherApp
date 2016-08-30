@@ -24830,7 +24830,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement('nav', null),
+	      React.createElement(Nav, null),
 	      React.createElement(
 	        'h2',
 	        null,
