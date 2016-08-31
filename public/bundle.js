@@ -57,9 +57,9 @@
 	var hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(216);
-	var Weather = __webpack_require__(219);
-	var About = __webpack_require__(220);
-	var Examples = __webpack_require__(221);
+	var Weather = __webpack_require__(218);
+	var About = __webpack_require__(219);
+	var Examples = __webpack_require__(220);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -24864,6 +24864,7 @@
 	var _require = __webpack_require__(159);
 
 	var Link = _require.Link;
+	var IndexLink = _require.IndexLink;
 
 
 	var Nav = React.createClass({
@@ -24879,18 +24880,18 @@
 	        'Nav Component'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        IndexLink,
+	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'Get Weather'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/about' },
+	        IndexLink,
+	        { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'About'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/examples' },
+	        IndexLink,
+	        { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'Examples'
 	      )
 	    );
@@ -24901,12 +24902,6 @@
 
 /***/ },
 /* 218 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24928,7 +24923,7 @@
 	module.exports = Weather;
 
 /***/ },
-/* 220 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24950,7 +24945,7 @@
 	module.exports = About;
 
 /***/ },
-/* 221 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
