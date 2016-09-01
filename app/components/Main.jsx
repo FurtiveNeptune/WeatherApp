@@ -1,6 +1,8 @@
 var React = require('react');
 var Nav = require('./Nav');
-var Weather = require('./Weather')
+var Weather = require('./Weather');
+var WeatherForm = require('./WeatherForm');
+var WeatherMessage = require('./WeatherMessage');
 
 var Main = React.createClass({
   render: function () {

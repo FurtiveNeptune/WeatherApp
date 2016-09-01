@@ -57,9 +57,11 @@
 	var hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(216);
-	var Weather = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"Weather\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	var About = __webpack_require__(219);
-	var Examples = __webpack_require__(220);
+	var About = __webpack_require__(221);
+	var Examples = __webpack_require__(222);
+	var Weather = __webpack_require__(218);
+	var WeatherForm = __webpack_require__(220);
+	var WeatherMessage = __webpack_require__(219);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -24831,7 +24833,9 @@
 
 	var React = __webpack_require__(1);
 	var Nav = __webpack_require__(217);
-	var Weather = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Weather\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var Weather = __webpack_require__(218);
+	var WeatherForm = __webpack_require__(220);
+	var WeatherMessage = __webpack_require__(219);
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -24877,7 +24881,7 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        'Nav Component'
+	        'React Weather'
 	      ),
 	      React.createElement(
 	        IndexLink,
@@ -24901,8 +24905,118 @@
 	module.exports = Nav;
 
 /***/ },
-/* 218 */,
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var WeatherMessage = __webpack_require__(219);
+	var WeatherForm = __webpack_require__(220);
+
+	var Weather = React.createClass({
+	  displayName: 'Weather',
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      location: "Default location"
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      location: this.props.name
+	    };
+	  },
+	  handleNewData: function handleNewData() {
+	    this.setState(updates);
+	  },
+	  render: function render() {
+	    var location = this.state.location;
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(WeatherMessage, { location: location }),
+	      React.createElement(WeatherForm, { onNewData: this.handleNewData })
+	    );
+	  }
+	});
+
+	module.exports = Weather;
+
+/***/ },
 /* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var WeatherMessage = React.createClass({
+	  displayName: 'WeatherMessage',
+
+	  render: function render() {
+	    var location = this.props.location;
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Get Weather'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = WeatherMessage;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var WeatherForm = React.createClass({
+	  displayName: 'WeatherForm',
+
+	  onFormSubmit: function onFormSubmit(e) {
+	    e.preventDefault();
+
+	    var updates = {};
+	    var location = this.refs.location.value;
+
+	    if (location.length > 0) {
+	      this.refs.location.value = '';
+	      updates.location = location;
+	    }
+	    this.props.onNewData(updates);
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'form',
+	      { onSubmit: this.onFormSubmit },
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter Location' }),
+	        React.createElement(
+	          'button',
+	          null,
+	          'Get Weather'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = WeatherForm;
+
+/***/ },
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24924,7 +25038,7 @@
 	module.exports = About;
 
 /***/ },
-/* 220 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -1,6 +1,6 @@
 var React = require('react');
-var GreeterMessage = require('GreeterMessage');
-var GreeterForm = require('GreeterForm');
+var WeatherMessage = require('WeatherMessage');
+var WeatherForm = require('WeatherForm');
 
 var Weather = React.createClass({
   getDefaultProps: function () {
