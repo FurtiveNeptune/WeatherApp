@@ -1,10 +1,30 @@
 var React = require('react');
+var GreeterMessage = require('GreeterMessage');
+var GreeterForm = require('GreeterForm');
 
 var Weather = React.createClass({
-  render:function () {
+  getDefaultProps: function () {
+    return {
+      location: "Default location"
+    };
+  },
+  getInitialState: function () {
+    return {
+      location: this.props.name
+    };
+  },
+  handleNewData: function () {
+    this.setState(updates);
+  },
+  render: function () {
+    var location = this.state.location;
+
     return (
-      <h3>Weather Component</h3>
-    )
+      <div>
+        <WeatherMessage location={location}/>
+        <WeatherForm onNewData={this.handleNewData}/>
+      </div>
+    );
   }
 });
 

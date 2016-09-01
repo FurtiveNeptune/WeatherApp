@@ -57,7 +57,7 @@
 	var hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(216);
-	var Weather = __webpack_require__(218);
+	var Weather = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"Weather\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var About = __webpack_require__(219);
 	var Examples = __webpack_require__(220);
 
@@ -24831,7 +24831,7 @@
 
 	var React = __webpack_require__(1);
 	var Nav = __webpack_require__(217);
-	var Weather = __webpack_require__(218);
+	var Weather = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Weather\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -24901,28 +24901,7 @@
 	module.exports = Nav;
 
 /***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var Weather = React.createClass({
-	  displayName: 'Weather',
-
-	  render: function render() {
-	    return React.createElement(
-	      'h3',
-	      null,
-	      'Weather Component'
-	    );
-	  }
-	});
-
-	module.exports = Weather;
-
-/***/ },
+/* 218 */,
 /* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
