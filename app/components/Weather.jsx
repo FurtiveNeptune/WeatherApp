@@ -3,6 +3,9 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 
 var Weather = React.createClass({
+  handleSearch: function (location) {
+    alert(location);
+  },
   render: function () {
     return (
       <div>
