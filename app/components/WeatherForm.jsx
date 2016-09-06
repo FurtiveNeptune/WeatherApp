@@ -17,7 +17,7 @@ render: function () {
         <form onSubmit={this.onFormSubmit}>
           <input type="text" ref="location" placeholder="Enter Location"/>
           <button>Get Weather</button>
-        </form>>
+        </form>
       </div>
     );
   }

@@ -24958,6 +24958,9 @@
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
+	  handleSearch: function handleSearch(location) {
+	    alert(location);
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -24979,25 +24982,36 @@
 /* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
 
 	var WeatherForm = React.createClass({
-	  displayName: "WeatherForm",
+	  displayName: 'WeatherForm',
 
+	  onFormSubmit: function onFormSubmit(e) {
+	    //the e (for event) argument will be passed into onFormSubmit
+	    e.preventDefault(); //prevents the page from reloading
+
+	    var location = this.refs.location.value; //<--- so if the input field has the text Philadelphia inside, the location variable is set to Philly
+
+	    if (location.length > 0) {
+	      this.refs.location.value = ''; //this will clear the input value from the browser on submit
+	      this.props.onSearch(location); //calls parent function
+	    }
+	  },
 	  render: function render() {
 	    return React.createElement(
-	      "form",
+	      'div',
 	      null,
 	      React.createElement(
-	        "div",
-	        null,
-	        React.createElement("input", { type: "text", placeholder: "Enter Location" }),
+	        'form',
+	        { onSubmit: this.onFormSubmit },
+	        React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter Location' }),
 	        React.createElement(
-	          "button",
+	          'button',
 	          null,
-	          "Get Weather"
+	          'Get Weather'
 	        )
 	      )
 	    );
