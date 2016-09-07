@@ -24958,8 +24958,17 @@
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
+	  getInitialState: function getInitialState() {
+	    return {
+	      location: 'Miami',
+	      temp: 88
+	    };
+	  },
 	  handleSearch: function handleSearch(location) {
-	    alert(location);
+	    this.setState({
+	      location: location,
+	      temp: 23
+	    });
 	  },
 	  render: function render() {
 	    return React.createElement(
@@ -24970,7 +24979,7 @@
 	        null,
 	        'Weather Component'
 	      ),
-	      React.createElement(WeatherForm, null),
+	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 	      React.createElement(WeatherMessage, null)
 	    );
 	  }
